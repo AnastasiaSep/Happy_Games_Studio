@@ -48,7 +48,6 @@ SELECT
 FROM generate_series(1, 1000000);
 
 
--- Вставка данных в таблицу order_items1 партиями
 DO
 $$
 DECLARE
@@ -61,7 +60,7 @@ BEGIN
             md5(random()::text) AS product_name, 
             (RANDOM() * 100)::NUMERIC(10, 2) AS price, 
             (RANDOM() * 10 + 1)::INTEGER AS quantity
-        FROM generate_series(1, 10);  -- Вставляем по 10 order_items на каждый order
+        FROM generate_series(1, 10);  
     END LOOP;
 END
 $$;
